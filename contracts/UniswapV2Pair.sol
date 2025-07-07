@@ -186,7 +186,8 @@ contract UniswapV2Pair is IUniswapV2Pair, UniswapV2ERC20 {
     // 兑换
     // 闪电贷
     // 参数
-	//
+	// - amount0Out：要拿走pool中 token0 数量
+    // - amount1Out：要拿走pool中 token1 数量
     function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external lock {
         require(amount0Out > 0 || amount1Out > 0, 'UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT');
         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings
